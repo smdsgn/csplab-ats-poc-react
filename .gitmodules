@@ -1,0 +1,3 @@
+[submodule "docs"]
+	path = docs
+	url = git@github.com:ShallowRed/csplab-ats-poc-docs.git

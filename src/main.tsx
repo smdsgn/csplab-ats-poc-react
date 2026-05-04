@@ -4,7 +4,7 @@ import "./styles/app.css";
 import { CunninghamProvider } from "@gouvfr-lasuite/ui-kit";
 import { StrictMode, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Navigate, Route, Routes, BrowserRouter } from "react-router";
+import { Navigate, Route, Routes, HashRouter } from "react-router";
 import { AppShell } from "./app/AppShell";
 import { ThemeModeProvider, type DsfrTheme } from "./app/ThemeModeContext";
 import { CandidaturesPage } from "./pages/CandidaturesPage";
@@ -40,7 +40,7 @@ function App() {
     <CunninghamProvider theme={theme} currentLocale="fr-FR">
       <ThemeModeProvider value={contextValue}>
         <CandidaturesProvider>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route element={<AppShell />}>
                 <Route index element={<Navigate to="/tableau-de-bord" replace />} />
@@ -50,7 +50,7 @@ function App() {
                 <Route path="candidatures/:id" element={<CandidaturesPage />} />
               </Route>
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </CandidaturesProvider>
       </ThemeModeProvider>
     </CunninghamProvider>

@@ -24,10 +24,17 @@ function App() {
     () => ({
       theme,
       toggleTheme: () =>
-        setTheme((prev) => (prev === "default" ? "dark" : "default")),
+        setTheme((prev) => {
+          const next = prev === "default" ? "dark" : "default";
+          document.documentElement.setAttribute("data-theme", next);
+          return next;
+        }),
     }),
-    [theme],
+    [],
   );
+
+  // Apply initial theme attribute
+  document.documentElement.setAttribute("data-theme", theme);
 
   return (
     <CunninghamProvider theme={theme} currentLocale="fr-FR">

@@ -58,6 +58,8 @@ export function CandidateDetail({ candidatureId, onClose }: Props) {
         flexDirection: "column",
         height: "100%",
         minHeight: 0,
+        maxWidth: "100%",
+        overflow: "hidden",
       }}
     >
       <div className="poc-detail-header">
